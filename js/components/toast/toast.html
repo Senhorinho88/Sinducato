@@ -1,0 +1,5 @@
+<div class="toast" ng-show="toast.visivel" ng-class="toast.tipo" role="alert" aria-atomic="true">
+    <strong>{{ toast.tipo | uppercase }}:</strong>
+    <span>{{ toast.mensagem }}</span>
+    <button type="button" ng-click="fechar()" aria-label="Fechar notificação">Fechar</button>
+</div>

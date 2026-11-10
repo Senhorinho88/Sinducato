@@ -1,0 +1,9 @@
+<nav class="paginacao" aria-label="Paginação das publicações">
+    <button type="button" ng-click="irPara(paginaAtual - 1)" ng-disabled="paginaAtual <= 1 || total === 0">Anterior</button>
+    <button type="button" ng-repeat="pagina in paginas track by pagina" ng-click="irPara(pagina)"
+        ng-class="{ selecionada: pagina === paginaAtual }" aria-label="Página {{ pagina }}"
+        ng-attr-aria-current="{{ pagina === paginaAtual ? 'page' : undefined }}">{{ pagina }}</button>
+    <button type="button" ng-click="irPara(paginaAtual + 1)" ng-disabled="paginaAtual >= total">Próximo</button>
+    <span ng-show="total > 0">Página {{ paginaAtual }} de {{ total }}</span>
+    <span ng-show="total === 0">Nenhuma publicação.</span>
+</nav>
