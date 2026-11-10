@@ -26,6 +26,15 @@ button:disabled { cursor: default; opacity: 0.5; }
 .toast.sucesso { border-color: #28612d; background: #edf6ed; }
 .toast.erro { border-color: #992b2b; background: #fff0f0; }
 .toast.urgente { border-color: #8a4b00; background: #fff3d6; }
+.lista-abas { display: flex; flex-wrap: wrap; gap: 4px; }
+.lista-abas .selecionada { background: #17476b; color: white; }
+[role="tabpanel"] { padding: 8px; border: 1px solid #bbb; }
+.progresso { margin: 12px 0; }
+.progresso label { display: block; }
+.progresso progress { width: min(100%, 400px); height: 24px; vertical-align: middle; }
+.dropdown { position: relative; display: inline-block; margin-bottom: 12px; max-width: 100%; }
+.menu-opcoes { position: absolute; top: 100%; left: 0; width: 260px; max-width: calc(100vw - 64px); border: 1px solid #999; background: white; z-index: 2; }
+.menu-opcoes button { display: block; width: 100%; border: 0; text-align: left; }
 @media (max-width: 600px) {
     main, section { padding: 12px; }
     h1 { font-size: 26px; }

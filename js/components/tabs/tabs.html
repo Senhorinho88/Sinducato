@@ -1,0 +1,9 @@
+<div class="abas">
+    <div class="lista-abas" role="tablist" aria-label="{{ titulo }}">
+        <button type="button" role="tab" ng-repeat="aba in abas track by aba.id" id="aba-{{ $parent.$id }}-{{ aba.id }}" aria-controls="painel-{{ $parent.$id }}-{{ aba.id }}" aria-selected="{{ $index === ativa }}" ng-attr-tabindex="{{ $index === ativa ? 0 : -1 }}" ng-class="{ selecionada: $index === ativa }" ng-click="selecionar($index)" ng-keydown="teclado($event, $index)">{{ aba.titulo }}</button>
+    </div>
+    <div role="tabpanel" ng-repeat="aba in abas track by aba.id" id="painel-{{ $parent.$id }}-{{ aba.id }}" aria-labelledby="aba-{{ $parent.$id }}-{{ aba.id }}" ng-show="$index === ativa" tabindex="0">
+        <p>{{ aba.conteudo }}</p>
+        <ul><li ng-repeat="detalhe in aba.detalhes track by $index">{{ detalhe }}</li></ul>
+    </div>
+</div>

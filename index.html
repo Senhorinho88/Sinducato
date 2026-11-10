@@ -10,18 +10,31 @@
     <header>
         <h1>SINDADOS-BA</h1>
         <p>Informações para trabalhadores de Tecnologia da Informação da Bahia</p>
-        <nav aria-label="Navegação principal"><a href="#avisos">Avisos</a> <a href="#direitos">Direitos da categoria</a> <a href="#noticias">Notícias</a> </nav>
+        <nav aria-label="Navegação principal"><a href="#avisos">Avisos</a> <a href="#servicos">Serviços</a> <a href="#direitos">Direitos da categoria</a> <a href="#noticias">Notícias</a></nav>
     </header>
     <main id="conteudo" ng-cloak>
         <p class="observacao">Atividade acadêmica: os valores, datas e comunicados abaixo são fictícios e servem apenas para demonstração.</p>
         <section id="avisos" aria-labelledby="titulo-avisos">
             <h2 id="titulo-avisos">Avisos da categoria</h2>
+            <sind-dropdown rotulo="Atendimento" opcoes="opcoesAtendimento" on-select="selecionarAtendimento(item)"></sind-dropdown>
             <p>Selecione uma opção para exibir uma notificação. Ela será fechada após 4 segundos.</p>
             <div class="acoes">
                 <button type="button" ng-click="mostrarAviso('urgente')">Aviso de assembleia</button>
                 <button type="button" ng-click="mostrarAviso('sucesso')">Confirmar interesse</button>
                 <button type="button" ng-click="mostrarAviso('erro')">Simular falha de inscrição</button>
             </div>
+        </section>
+        <section id="servicos" aria-labelledby="titulo-servicos">
+            <h2 id="titulo-servicos">Serviços ao trabalhador</h2>
+            <sind-tabs titulo="Informações dos serviços" abas="abasServicos"></sind-tabs>
+            <h3>Envio de documentos</h3>
+            <p>Simulação do envio para homologação. Nenhum arquivo ou dado é enviado.</p>
+            <sind-progress titulo="Progresso do envio simulado" valor="progresso"></sind-progress>
+            <div class="acoes">
+                <button type="button" ng-click="iniciarEnvio()" ng-disabled="enviando">Simular envio</button>
+                <button type="button" ng-click="cancelarEnvio()" ng-disabled="!enviando">Cancelar envio</button>
+            </div>
+            <p role="status">{{ statusEnvio }}</p>
         </section>
         <section id="direitos" aria-labelledby="titulo-direitos">
             <h2 id="titulo-direitos">Direitos da categoria</h2>
@@ -43,6 +56,9 @@
     <script src="js/components/toast/toast.js"></script>
     <script src="js/components/accordion/accordion.js"></script>
     <script src="js/components/pagination/pagination.js"></script>
+    <script src="js/components/progress/progress.js"></script>
+    <script src="js/components/tabs/tabs.js"></script>
+    <script src="js/components/dropdown/dropdown.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/principal.controller.js"></script>
 </body>

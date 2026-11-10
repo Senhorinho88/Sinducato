@@ -1,4 +1,29 @@
-angular.module('sindadosApp').controller('PrincipalController', ['$scope', 'ToastService', function ($scope, ToastService) {
+angular.module('sindadosApp').controller('PrincipalController', ['$scope', 'ToastService', '$timeout', function ($scope, ToastService, $timeout) {
+    $scope.opcoesAtendimento = [
+        { rotulo: 'Atendimento sindical', mensagem: 'Consulte os canais oficiais do SINDADOS-BA para confirmar horários de atendimento.', tipo: 'sucesso' },
+        { rotulo: 'Documentos de homologação', mensagem: 'Separe identificação, carteira de trabalho e documentos do contrato para solicitar orientação.', tipo: 'sucesso' },
+        { rotulo: 'Campanha salarial', mensagem: 'Acompanhe os comunicados oficiais sobre assembleias e negociação coletiva.', tipo: 'urgente' }
+    ];
+    $scope.selecionarAtendimento = function (item) { ToastService.show(item.mensagem, item.tipo); };
+    $scope.abasServicos = [
+        { id: 'homologacao', titulo: 'Homologação', conteudo: 'Prepare os documentos antes de solicitar atendimento.', detalhes: ['Separe os documentos do contrato e da rescisão.', 'Confirme o procedimento com o sindicato.'] },
+        { id: 'orientacao', titulo: 'Orientação', conteudo: 'Tire dúvidas sobre direitos da categoria de TI na Bahia.', detalhes: ['Consulte a convenção coletiva aplicável.', 'Reúna comprovantes relacionados à sua dúvida.'] },
+        { id: 'participacao', titulo: 'Participação', conteudo: 'Acompanhe os debates e decisões coletivas dos trabalhadores.', detalhes: ['Consulte as convocações oficiais de assembleia.', 'Envie propostas pelos canais oficiais.'] }
+    ];
+    var temporizador;
+    $scope.progresso = 0; $scope.enviando = false; $scope.statusEnvio = 'Aguardando início.';
+    $scope.cancelarEnvio = function () { $timeout.cancel(temporizador); $scope.enviando = false; $scope.progresso = 0; $scope.statusEnvio = 'Envio cancelado.'; };
+    $scope.iniciarEnvio = function () {
+        if ($scope.enviando) return;
+        $scope.progresso = 0; $scope.enviando = true; $scope.statusEnvio = 'Enviando documentos na simulação...';
+        function avancar() {
+            $scope.progresso += 20;
+            if ($scope.progresso < 100) temporizador = $timeout(avancar, 800);
+            else { $scope.enviando = false; $scope.statusEnvio = 'Simulação concluída.'; ToastService.show('Simulação de envio concluída. Nenhum documento foi transmitido.', 'sucesso'); }
+        }
+        temporizador = $timeout(avancar, 800);
+    };
+    $scope.$on('$destroy', function () { $timeout.cancel(temporizador); });
     $scope.direitos = [
         { id: 1, titulo: 'Convenção coletiva', conteudo: 'A convenção coletiva reúne condições negociadas para a categoria de TI na Bahia.', detalhes: ['Exemplo: reajuste salarial anual de 5%.', 'Exemplo: jornada de 40 horas semanais.', 'Consulte o documento oficial para verificar vigência e abrangência.'] },
         { id: 2, titulo: 'Pisos salariais por cargo', conteudo: 'Tabela ilustrativa para a atividade. Estes valores não representam pisos oficiais.', detalhes: ['Suporte técnico: R$ 2.200,00.', 'Desenvolvedor júnior: R$ 3.000,00.', 'Analista de sistemas: R$ 4.500,00.'] },

@@ -1,0 +1,6 @@
+<div class="dropdown">
+    <button type="button" id="menu-botao-{{ $id }}" aria-haspopup="menu" aria-expanded="{{ aberto }}" aria-controls="menu-{{ $id }}" ng-click="aberto = !aberto" ng-keydown="teclado($event, $event.key === 'ArrowUp' ? 0 : -1)">{{ rotulo }} <span aria-hidden="true">▾</span></button>
+    <div class="menu-opcoes" id="menu-{{ $id }}" role="menu" aria-labelledby="menu-botao-{{ $id }}" ng-show="aberto">
+        <button type="button" role="menuitem" tabindex="-1" ng-repeat="item in opcoes track by $index" ng-click="escolher(item)" ng-keydown="teclado($event, $index)">{{ item.rotulo }}</button>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="progresso">
+    <label for="progresso-{{ $id }}">{{ titulo }}</label>
+    <progress id="progresso-{{ $id }}" max="100" ng-attr-value="{{ porcentagem }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ porcentagem }}">{{ porcentagem }}%</progress>
+    <span aria-live="polite">{{ porcentagem }}%</span>
+</div>
