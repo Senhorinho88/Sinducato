@@ -1,13 +1,11 @@
 <div class="acordeao">
     <div class="item-acordeao" ng-repeat="item in itens track by item.id" ng-class="{ ativo: item.aberto }">
         <h3>
-            <button type="button" id="{{ identificador }}-titulo-{{ item.id }}" ng-click="alternar(item)"
-                aria-expanded="{{ !!item.aberto }}" aria-controls="{{ identificador }}-painel-{{ item.id }}">
+            <button type="button" id="{{ identificador }}-titulo-{{ item.id }}" ng-click="alternar(item)" aria-expanded="{{ !!item.aberto }}" aria-controls="{{ identificador }}-painel-{{ item.id }}">
                 <span aria-hidden="true">{{ item.aberto ? '−' : '+' }}</span> {{ item.titulo }}
             </button>
         </h3>
-        <div class="conteudo-acordeao" id="{{ identificador }}-painel-{{ item.id }}" ng-show="item.aberto"
-            role="region" aria-labelledby="{{ identificador }}-titulo-{{ item.id }}">
+        <div class="conteudo-acordeao" id="{{ identificador }}-painel-{{ item.id }}" ng-show="item.aberto" role="region" aria-labelledby="{{ identificador }}-titulo-{{ item.id }}">
             <p>{{ item.conteudo }}</p>
             <ul ng-show="item.detalhes.length">
                 <li ng-repeat="detalhe in item.detalhes track by $index">{{ detalhe }}</li>

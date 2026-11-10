@@ -1,165 +1,33 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    color: #222;
-    background: #f2f2f2;
-}
-
-[ng-cloak] {
-    display: none !important;
-}
-
-header, footer {
-    padding: 16px;
-    background: #ddd;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav a {
-    display: inline-block;
-    margin-right: 16px;
-    color: #17476b;
-}
-
-main {
-    max-width: 960px;
-    margin: auto;
-    padding: 16px;
-}
-
-section {
-    margin-bottom: 20px;
-    padding: 16px;
-    border: 1px solid #bbb;
-    background: white;
-}
-
-h2 {
-    margin-top: 0;
-}
-
-button {
-    padding: 8px 12px;
-    font: inherit;
-    cursor: pointer;
-    border: 1px solid #999;
-    background: #eee;
-    color: #222;
-}
-
-button:hover:not(:disabled) {
-    background: #ddd;
-}
-
-button:focus-visible, a:focus-visible {
-    outline: 3px solid #17476b;
-    outline-offset: 3px;
-}
-
-button:disabled {
-    cursor: default;
-    opacity: 0.5;
-}
-
-.acoes, .paginacao {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-}
-
-.observacao {
-    font-size: 14px;
-}
-
-.item-acordeao {
-    border: 1px solid #bbb;
-    margin-bottom: 8px;
-}
-
-.item-acordeao h3 {
-    margin: 0;
-}
-
-.item-acordeao button {
-    width: 100%;
-    border: 0;
-    text-align: left;
-}
-
-.ativo h3 button, .paginacao .selecionada {
-    background: #17476b;
-    color: white;
-}
-
-.paginacao .selecionada:hover {
-    background: #123954;
-}
-
-.conteudo-acordeao {
-    padding: 0 12px;
-}
-
-.noticia {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 16px;
-}
-
-.noticia h3 {
-    margin-bottom: 4px;
-}
-
-.toast {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    width: 380px;
-    max-width: calc(100% - 32px);
-    padding: 16px;
-    border: 2px solid;
-    background: white;
-    z-index: 10;
-    overflow-wrap: anywhere;
-}
-
-.toast button {
-    display: block;
-    margin-top: 8px;
-}
-
-.toast.sucesso {
-    border-color: #28612d;
-    background: #edf6ed;
-}
-
-.toast.erro {
-    border-color: #992b2b;
-    background: #fff0f0;
-}
-
-.toast.urgente {
-    border-color: #8a4b00;
-    background: #fff3d6;
-}
-
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; line-height: 1.5; color: #222; background: #f2f2f2; }
+[ng-cloak] { display: none !important; }
+header, footer { padding: 16px; background: #ddd; }
+header h1 { margin: 0; }
+nav a { display: inline-block; margin-right: 16px; color: #17476b; }
+main { max-width: 960px; margin: auto; padding: 16px; }
+section { margin-bottom: 20px; padding: 16px; border: 1px solid #bbb; background: white; }
+h2 { margin-top: 0; }
+button { padding: 8px 12px; font: inherit; cursor: pointer; border: 1px solid #999; background: #eee; color: #222; }
+button:hover:not(:disabled) { background: #ddd; }
+button:focus-visible, a:focus-visible { outline: 3px solid #17476b; outline-offset: 3px; }
+button:disabled { cursor: default; opacity: 0.5; }
+.acoes, .paginacao { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.observacao { font-size: 14px; }
+.item-acordeao { border: 1px solid #bbb; margin-bottom: 8px; }
+.item-acordeao h3 { margin: 0; }
+.item-acordeao button { width: 100%; border: 0; text-align: left; }
+.ativo h3 button, .paginacao .selecionada { background: #17476b; color: white; }
+.paginacao .selecionada:hover { background: #123954; }
+.conteudo-acordeao { padding: 0 12px; }
+.noticia { border-bottom: 1px solid #ccc; margin-bottom: 16px; }
+.noticia h3 { margin-bottom: 4px; }
+.toast { position: fixed; bottom: 16px; right: 16px; width: 380px; max-width: calc(100% - 32px); padding: 16px; border: 2px solid; background: white; z-index: 10; overflow-wrap: anywhere; }
+.toast button { display: block; margin-top: 8px; }
+.toast.sucesso { border-color: #28612d; background: #edf6ed; }
+.toast.erro { border-color: #992b2b; background: #fff0f0; }
+.toast.urgente { border-color: #8a4b00; background: #fff3d6; }
 @media (max-width: 600px) {
-    main, section {
-        padding: 12px;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-
-    .acoes button {
-        width: 100%;
-    }
+    main, section { padding: 12px; }
+    h1 { font-size: 26px; }
+    .acoes button { width: 100%; }
 }

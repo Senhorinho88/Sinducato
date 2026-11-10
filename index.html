@@ -10,16 +10,10 @@
     <header>
         <h1>SINDADOS-BA</h1>
         <p>Informações para trabalhadores de Tecnologia da Informação da Bahia</p>
-        <nav aria-label="Navegação principal">
-            <a href="#avisos">Avisos</a>
-            <a href="#direitos">Direitos da categoria</a>
-            <a href="#noticias">Notícias</a>
-        </nav>
+        <nav aria-label="Navegação principal"><a href="#avisos">Avisos</a> <a href="#direitos">Direitos da categoria</a> <a href="#noticias">Notícias</a> </nav>
     </header>
-
     <main id="conteudo" ng-cloak>
         <p class="observacao">Atividade acadêmica: os valores, datas e comunicados abaixo são fictícios e servem apenas para demonstração.</p>
-
         <section id="avisos" aria-labelledby="titulo-avisos">
             <h2 id="titulo-avisos">Avisos da categoria</h2>
             <p>Selecione uma opção para exibir uma notificação. Ela será fechada após 4 segundos.</p>
@@ -29,31 +23,22 @@
                 <button type="button" ng-click="mostrarAviso('erro')">Simular falha de inscrição</button>
             </div>
         </section>
-
         <section id="direitos" aria-labelledby="titulo-direitos">
             <h2 id="titulo-direitos">Direitos da categoria</h2>
             <p>Abra um dos assuntos para consultar as informações.</p>
             <sind-accordion itens="direitos" identificador="direitos"></sind-accordion>
         </section>
-
         <section id="noticias" aria-labelledby="titulo-noticias">
             <h2 id="titulo-noticias">Notícias e editais</h2>
             <p>{{ noticias.length }} publicações, com {{ itensPorPagina }} por página.</p>
             <div id="lista-noticias" aria-live="polite" aria-atomic="true">
-                <article class="noticia" ng-repeat="noticia in noticiasVisiveis track by noticia.id">
-                    <h3>{{ noticia.titulo }}</h3>
-                    <p><time datetime="{{ noticia.data }}">{{ noticia.data | date:'dd/MM/yyyy' }}</time> — {{ noticia.categoria }}</p>
-                    <p>{{ noticia.resumo }}</p>
-                </article>
+                <article class="noticia" ng-repeat="noticia in noticiasVisiveis track by noticia.id"><h3>{{ noticia.titulo }}</h3><p><time datetime="{{ noticia.data }}">{{ noticia.data | date:'dd/MM/yyyy' }}</time> — {{ noticia.categoria }}</p><p>{{ noticia.resumo }}</p></article>
             </div>
-            <sind-pagination total-paginas="{{ totalPaginas }}" pagina-atual="paginaAtual"
-                on-page-change="mudarPagina(pagina)"></sind-pagination>
+            <sind-pagination total-paginas="{{ totalPaginas }}" pagina-atual="paginaAtual" on-page-change="mudarPagina(pagina)"></sind-pagination>
         </section>
     </main>
-
     <footer><p>SINDADOS-BA — Atividade prática de Engenharia de Software / UCSAL</p></footer>
     <sind-toast></sind-toast>
-
     <script src="vendor/angular.min.js"></script>
     <script src="js/components/toast/toast.js"></script>
     <script src="js/components/accordion/accordion.js"></script>
